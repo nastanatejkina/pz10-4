@@ -1,0 +1,72 @@
+﻿<Window x:Class="pz10_4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pz10_4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Name="Save" 
+                Content="Добавить запись" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Click="Save_Click" Margin="609,53,0,0"/>
+        <Button Name="Delete" 
+                Content="Удалить записи" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="609,15,0,0"
+                Click="Delete_Click"/>
+        <TextBox Name="TextNotes"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom"
+                Margin="609,0,0,316" 
+                 Width="100"
+                 Height="Auto"/>
+        <WrapPanel HorizontalAlignment="Left" 
+                   Height="405" 
+                   Width="280" 
+                   Background="#FFFFC3FF" 
+                   VerticalAlignment="Center">
+            <TextBlock Text="планы"/>
+            <ListBox HorizontalAlignment="Stretch" 
+                     HorizontalContentAlignment="Stretch" 
+                     MouseDoubleClick="Online_MouseDoubleClick"
+                Name="Online" Height="405" Width="280">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel MaxWidth="270">
+                            <TextBlock HorizontalAlignment="Stretch" 
+                                       TextWrapping="Wrap" 
+                                       Foreground="Blue"  
+                                       Text= "{Binding Name}">
+                            </TextBlock>
+                            <TextBlock Foreground ="Red"  HorizontalAlignment="Right" Text="{Binding status}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Left" Height="405" Width="300" Background="#FFFF9B9B" VerticalAlignment="Center" Margin="285,0,0,0">
+            <TextBlock Text="зактрыто"/>
+            <ListBox HorizontalAlignment="Stretch" 
+                     HorizontalContentAlignment="Stretch"
+                     SelectionMode="Multiple"
+                Name="Offline" Height="405" Width="286">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel MaxWidth="270">
+                            <TextBlock HorizontalAlignment="Stretch" 
+                                       TextWrapping="Wrap" 
+                                       Foreground="Blue"  
+                                       Text= "{Binding Name}">
+                            </TextBlock>
+                            <TextBlock Foreground ="Red"  HorizontalAlignment="Right" Text="{Binding status}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </WrapPanel>
+    </Grid>
+</Window>
